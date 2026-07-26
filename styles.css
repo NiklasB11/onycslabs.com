@@ -56,6 +56,7 @@ body.menu-open {
 
 img {
   display: block;
+  height: auto;
   max-width: 100%;
 }
 
@@ -336,7 +337,7 @@ h1 {
 
 .hero-portrait {
   width: 100%;
-  aspect-ratio: 1.15 / 1;
+  height: clamp(430px, 38vw, 520px);
   object-fit: cover;
   object-position: center;
   border-radius: 4px;
@@ -347,10 +348,14 @@ h1 {
   height: 155px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   gap: 12px;
+  overflow: hidden;
 }
 
 .material-strip img {
+  min-width: 0;
+  min-height: 0;
   width: 100%;
   height: 100%;
   border-radius: 4px;
@@ -555,6 +560,7 @@ h1 {
 
 .ask-phone img {
   width: min(310px, 76%);
+  height: auto;
   filter: drop-shadow(0 32px 40px rgba(36, 39, 38, 0.24));
 }
 
@@ -964,7 +970,7 @@ blockquote {
   }
 
   .hero-portrait {
-    aspect-ratio: 0.92 / 1;
+    height: min(112vw, 620px);
   }
 
   .material-strip {
