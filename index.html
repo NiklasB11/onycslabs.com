@@ -3,56 +3,423 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Onycs Labs</title>
+    <meta name="theme-color" content="#f5f3ee" />
     <meta
       name="description"
-      content="Onycs Labs — a new website is coming soon."
+      content="ONYCS reads how your skin changes and turns real measurements into personalized guidance."
     />
-    <style>
-      :root {
-        color-scheme: dark;
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
-        background: #09090b;
-        color: #fafafa;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        min-height: 100vh;
-        margin: 0;
-        display: grid;
-        place-items: center;
-        padding: 2rem;
-      }
-
-      main {
-        max-width: 42rem;
-        text-align: center;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(3rem, 12vw, 7rem);
-        letter-spacing: -0.07em;
-        line-height: 0.95;
-      }
-
-      p {
-        margin: 1.5rem 0 0;
-        color: #a1a1aa;
-        font-size: clamp(1rem, 2vw, 1.25rem);
-      }
-    </style>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ONYCS Skin Labs" />
+    <meta
+      property="og:description"
+      content="The instrument for healthier skin. Personal skin intelligence, measured."
+    />
+    <meta property="og:url" content="https://onycslabs.com/" />
+    <meta
+      property="og:image"
+      content="https://onycslabs.com/assets/og.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="ONYCS — The instrument for healthier skin"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ONYCS Skin Labs" />
+    <meta
+      name="twitter:description"
+      content="The instrument for healthier skin. Personal skin intelligence, measured."
+    />
+    <meta
+      name="twitter:image"
+      content="https://onycslabs.com/assets/og.png"
+    />
+    <title>ONYCS Skin Labs — The instrument for healthier skin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <main>
-      <h1>Onycs Labs</h1>
-      <p>A new website is coming soon.</p>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="wordmark" href="#top" aria-label="ONYCS Skin Labs home">
+          <span>ONYCS</span>
+          <small>SKIN LABS</small>
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span></span><span></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+          <a href="#solution">Solution</a>
+          <a href="#value">Value</a>
+          <a href="#science">Science</a>
+          <a class="button button-dark button-small" href="#waitlist"
+            >Early access</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero section">
+        <div class="hero-grid shell">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Personal skin intelligence</p>
+            <h1>The instrument for healthier skin.</h1>
+            <p class="lede">
+              ONYCS reads how your skin changes and turns real measurements
+              into personalized guidance—so you can understand what it needs
+              and what actually works.
+            </p>
+            <form class="waitlist-form" data-waitlist-form>
+              <label class="sr-only" for="hero-email">Email address</label>
+              <input
+                id="hero-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="Email address"
+                required
+              />
+              <button class="button button-dark" type="submit">
+                Request early access <span aria-hidden="true">→</span>
+              </button>
+              <p class="form-status" data-form-status aria-live="polite"></p>
+            </form>
+            <p class="form-note">
+              Early members will be first to experience ONYCS at launch.
+            </p>
+          </div>
+
+          <div class="hero-media reveal">
+            <img
+              class="hero-portrait"
+              src="assets/hero.webp"
+              alt="Close-up portrait showing healthy skin and natural stone"
+              width="1254"
+              height="1254"
+              fetchpriority="high"
+            />
+            <div class="material-strip" aria-label="Natural material textures">
+              <img
+                src="assets/stones.webp"
+                alt="Smooth mineral stones"
+                width="1254"
+                height="1254"
+              />
+              <img
+                src="assets/sand.webp"
+                alt="Soft sandstone layers"
+                width="1122"
+                height="1402"
+              />
+              <img
+                src="assets/clay.webp"
+                alt="Dark natural clay"
+                width="1254"
+                height="1254"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="steps section">
+        <div class="shell">
+          <h2 class="section-intro reveal">
+            ONYCS brings precision skincare out of the clinic and into your
+            hands, in three simple steps.
+          </h2>
+          <div class="step-grid">
+            <article class="step-card reveal">
+              <span>01</span>
+              <h3>Measure</h3>
+              <p>
+                Capture your skin’s data with the ONYCS handheld device, along
+                with the external factors that affect your skin’s state and
+                performance.
+              </p>
+            </article>
+            <article class="step-card step-card-sand reveal">
+              <span>02</span>
+              <h3>Analyse</h3>
+              <p>
+                ONYCS turns your skin data into clear insight—your skin type,
+                what it needs, and how it reacts to products and lifestyle.
+              </p>
+            </article>
+            <article class="step-card step-card-green reveal">
+              <span>03</span>
+              <h3>Optimise</h3>
+              <p>
+                Get a plan tailored to your skin and track its evolution—
+                precision skincare in your pocket, for skin that is healthy,
+                radiant, and ages well.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution" class="solution section">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <p class="eyebrow">The solution</p>
+            <h2>Elevated skincare, tailored to your skin.</h2>
+            <p>
+              An AI-native app paired with a handheld device. The device reads
+              your skin; the app turns those readings into insight and a plan
+              made for you. Together, precision skincare that fits in your
+              hand.
+            </p>
+          </div>
+          <div class="solution-media">
+            <figure class="media-card reveal">
+              <img
+                src="assets/device-face.webp"
+                alt="ONYCS handheld device measuring facial skin"
+                width="627"
+                height="627"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="media-card reveal">
+              <img
+                src="assets/device-report.webp"
+                alt="ONYCS app displaying a personalized skin health report"
+                width="1122"
+                height="1402"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="value" class="value section">
+        <div class="shell">
+          <div class="section-heading section-heading-wide reveal">
+            <p class="eyebrow">The value</p>
+            <h2>Know your skin, and give it exactly what it needs.</h2>
+            <p>
+              Most skincare is guesswork. We buy products on hope—but there is
+              no one-size-fits-all skin, and finding what works means endless
+              trial and error. ONYCS brings precise, continuous insight into
+              your hands, so healthier skin stops being a guessing game.
+            </p>
+          </div>
+
+          <div class="value-grid">
+            <article class="value-card reveal">
+              <div class="value-image">
+                <img
+                  src="assets/skin-profile.webp"
+                  alt="ONYCS app showing skin type, skin age and hydration results"
+                  width="1254"
+                  height="1254"
+                  loading="lazy"
+                />
+              </div>
+              <div class="value-copy">
+                <h3>Understand your skin</h3>
+                <p>
+                  Discover your true skin type, your skin age index, and get a
+                  plan built around what your skin actually needs. No more
+                  one-size-fits-all routines—just precision skincare, shaped
+                  for you.
+                </p>
+              </div>
+            </article>
+            <article class="value-card reveal">
+              <div class="value-image">
+                <img
+                  src="assets/progress.webp"
+                  alt="ONYCS app showing skin progress and daily context"
+                  width="1254"
+                  height="1254"
+                  loading="lazy"
+                />
+              </div>
+              <div class="value-copy">
+                <h3>Watch your skin respond</h3>
+                <p>
+                  See how your skin improves as you follow your plan, and how
+                  it reacts to new products, seasons, and environments. You
+                  always know how to care for your skin today.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="ask-grid">
+            <div class="ask-copy reveal">
+              <h2>Finally, advice that fits your skin.</h2>
+              <p>
+                Today’s skincare is endless noise—thousands of products,
+                endless opinions, and marketing you cannot tell from real
+                advice. Ask ONYCS cuts through it. It knows your measurements,
+                patterns, and conditions, and gives you answers that fit your
+                skin.
+              </p>
+              <div class="ask-note">
+                <h3>Ask anything, anytime</h3>
+                <p>
+                  Ask about your results, a new product, or your routine and
+                  get clear, personal guidance built around your own skin.
+                </p>
+              </div>
+            </div>
+            <div class="ask-phone reveal">
+              <img
+                src="assets/ask-onycs.webp"
+                alt="Ask ONYCS personalized skincare conversation"
+                width="597"
+                height="1291"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="science" class="science section">
+        <div class="topography" aria-hidden="true"></div>
+        <div class="shell science-shell">
+          <div class="section-heading reveal">
+            <p class="eyebrow eyebrow-light">The science</p>
+            <h2>What ONYCS measures.</h2>
+            <p>
+              ONYCS captures the signals that define your skin and turns them
+              into clear, personalized insight. So you can give your skin
+              exactly what it needs—to be healthier, more radiant, and age
+              beautifully.
+            </p>
+          </div>
+          <div class="science-grid">
+            <article class="science-card reveal">
+              <span class="science-symbol" aria-hidden="true">◌</span>
+              <h3>Skin composition</h3>
+              <p>
+                Precision sensors read core signals such as hydration and
+                oiliness—the same properties used to understand skin condition.
+              </p>
+            </article>
+            <article class="science-card reveal">
+              <span class="science-symbol" aria-hidden="true">◎</span>
+              <h3>Skin characteristics</h3>
+              <p>
+                ONYCS builds your skin profile—type, texture, and how it is
+                aging—the lasting traits that shape how your skin behaves.
+              </p>
+            </article>
+            <article class="science-card reveal">
+              <span class="science-symbol" aria-hidden="true">☼</span>
+              <h3>Skin environment</h3>
+              <p>
+                ONYCS factors in local UV, humidity, and air quality because
+                your environment shapes how your skin performs.
+              </p>
+            </article>
+          </div>
+          <p class="science-summary reveal">
+            Together, these form your complete skin profile—measured, not
+            guessed.
+          </p>
+        </div>
+      </section>
+
+      <section class="founder-note section">
+        <div class="quote-shell reveal">
+          <blockquote>
+            “We track our steps, our sleep, our heart rate—but not our skin, the
+            largest organ we have. We’re building ONYCS to bring skincare up to
+            the level of every other health metric.”
+          </blockquote>
+          <p>The ONYCS founding team</p>
+        </div>
+      </section>
+
+      <section id="waitlist" class="final-cta section">
+        <div class="cta-shell reveal">
+          <p class="eyebrow">Launching in early 2027</p>
+          <h2>Pre-launch—join the waitlist.</h2>
+          <p>Early members get first access when ONYCS launches.</p>
+          <form class="waitlist-form waitlist-form-centered" data-waitlist-form>
+            <label class="sr-only" for="cta-email">Email address</label>
+            <input
+              id="cta-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="Email address"
+              required
+            />
+            <button class="button button-green" type="submit">
+              Join the waitlist
+            </button>
+            <p class="form-status" data-form-status aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="footer-main shell">
+        <div>
+          <a class="wordmark wordmark-small" href="#top">
+            <span>ONYCS</span>
+            <small>SKIN LABS</small>
+          </a>
+          <p>The future of skin performance.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#solution">Solution</a>
+          <a href="#value">Value</a>
+          <a href="#science">Science</a>
+          <button type="button" data-dialog-open="privacy-dialog">
+            Privacy
+          </button>
+          <a href="mailto:hello@onycslabs.com">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom shell">
+        <span>© 2026 ONYCS Skin Labs</span>
+        <span>Not a medical device. Insights are for wellness purposes.</span>
+      </div>
+    </footer>
+
+    <dialog id="privacy-dialog" class="privacy-dialog">
+      <button
+        class="dialog-close"
+        type="button"
+        data-dialog-close
+        aria-label="Close privacy notice"
+      >
+        ×
+      </button>
+      <p class="eyebrow">Privacy</p>
+      <h2>Your data should serve you.</h2>
+      <p>
+        We use the email address you provide only to manage early-access
+        requests and ONYCS launch updates. We do not sell personal information.
+        You can ask to have your details removed at any time by writing to
+        <a href="mailto:hello@onycslabs.com">hello@onycslabs.com</a>.
+      </p>
+      <button class="button button-dark" type="button" data-dialog-close>
+        Close
+      </button>
+    </dialog>
   </body>
 </html>

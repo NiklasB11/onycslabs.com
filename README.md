@@ -1,7 +1,8 @@
-# Onycs Labs website
+# ONYCS Skin Labs website
 
-The public website for [onycslabs.com](https://onycslabs.com), hosted with
-GitHub Pages.
+The public landing page for [onycslabs.com](https://onycslabs.com), hosted
+with GitHub Pages.
 
-The current page is a temporary placeholder and can be replaced by the final
-Cloud Design implementation.
+The site is intentionally dependency-free: static HTML, CSS, and JavaScript
+with optimized WebP imagery. Waitlist submissions are sent to the ONYCS
+Cloudflare endpoint.
