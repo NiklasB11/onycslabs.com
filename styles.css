@@ -611,43 +611,204 @@ figure {
   margin: 0;
 }
 
-.two-up-landscape figure {
-  aspect-ratio: 4 / 3;
+.feedback-grid {
+  width: 100%;
+  max-width: 1100px;
+  margin: 68px auto 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.75fr);
+  align-items: center;
+  gap: 40px;
+}
+
+.feedback-loop-diagram,
+.progress-figure {
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 18px;
-  background: var(--panel);
-  box-shadow: 0 22px 54px -38px rgba(36, 39, 38, 0.28);
+  border-radius: 20px;
+  box-shadow: 0 24px 58px -38px rgba(36, 39, 38, 0.3);
 }
 
-.two-up-landscape img {
+.feedback-loop-diagram {
   position: relative;
+  aspect-ratio: 1134 / 780;
+  min-height: 420px;
+  background:
+    radial-gradient(
+      circle at 50% 47%,
+      rgba(255, 255, 255, 0.52),
+      transparent 38%
+    ),
+    var(--panel);
+}
+
+.loop-step {
+  position: absolute;
+  z-index: 2;
+  color: var(--body);
+  text-align: center;
+}
+
+.loop-step p {
+  margin: 0;
+}
+
+.loop-step > p:last-child {
+  margin-top: 8px;
+  font-size: clamp(14px, 1.15vw, 17px);
+  line-height: 1.42;
+}
+
+.loop-kicker {
+  color: var(--green);
+  font-size: clamp(13px, 1.08vw, 16px);
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.loop-kicker span {
+  margin-right: 8px;
+  color: var(--terracotta);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.loop-measure {
+  top: 6%;
+  left: 50%;
+  width: 52%;
+  transform: translateX(-50%);
+}
+
+.loop-act {
+  bottom: 6%;
+  left: 3.5%;
+  width: 35%;
+}
+
+.loop-understand {
+  right: 3.5%;
+  bottom: 6%;
+  width: 37%;
+}
+
+.loop-orbit {
+  position: absolute;
   z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  top: 50%;
+  left: 50%;
+  width: min(41%, 252px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
 }
 
-.two-up-landscape figure:last-child {
-  position: relative;
-  isolation: isolate;
-  background: #b7a184;
-}
-
-.two-up-landscape figure:last-child::before {
+.loop-orbit::before {
   content: "";
   position: absolute;
-  z-index: 0;
-  inset: -24px;
-  background: url("assets/progress-hand.webp") center / cover;
-  filter: blur(22px) saturate(0.7);
-  opacity: 0.2;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from -39deg,
+    var(--green) 0 27%,
+    transparent 27% 34%,
+    var(--green) 34% 61%,
+    transparent 61% 68%,
+    var(--green) 68% 94%,
+    transparent 94% 100%
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 4px),
+    #000 calc(100% - 3px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 4px),
+    #000 calc(100% - 3px)
+  );
 }
 
-.how .two-up {
+.loop-orbit > p {
+  max-width: 10.5em;
+  margin: 0;
+  color: var(--green);
+  font-size: clamp(20px, 1.75vw, 26px);
+  font-weight: 400;
+  line-height: 1.32;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.loop-dot,
+.loop-arrow {
+  position: absolute;
+  z-index: 2;
+  display: block;
+}
+
+.loop-dot {
+  width: 18px;
+  aspect-ratio: 1;
+  border: 4px solid var(--panel);
+  border-radius: 50%;
+  background: var(--terracotta);
+  box-sizing: content-box;
+}
+
+.loop-dot-one {
+  top: -11px;
+  left: calc(50% - 13px);
+}
+
+.loop-dot-two {
+  right: 5%;
+  bottom: 13%;
+}
+
+.loop-dot-three {
+  bottom: 13%;
+  left: 5%;
+}
+
+.loop-arrow {
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 12px solid var(--green);
+}
+
+.loop-arrow-one {
+  top: 4%;
+  right: 15%;
+  transform: rotate(52deg);
+}
+
+.loop-arrow-two {
+  right: -1%;
+  bottom: 26%;
+  transform: rotate(112deg);
+}
+
+.loop-arrow-three {
+  bottom: 1%;
+  left: 26%;
+  transform: rotate(201deg);
+}
+
+.progress-figure {
   width: 100%;
-  max-width: 1080px;
-  margin-inline: auto;
+  aspect-ratio: 1086 / 1448;
+  background: #9b876d;
+}
+
+.progress-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .solution-figure {
@@ -1257,6 +1418,7 @@ footer {
   }
 
   .two-up,
+  .feedback-grid,
   .advisor-grid,
   .science-grid {
     grid-template-columns: 1fr;
@@ -1267,9 +1429,18 @@ footer {
     gap: 24px;
   }
 
-  .how .two-up,
+  .feedback-grid,
   .value-images {
     max-width: 600px;
+  }
+
+  .feedback-grid {
+    gap: 28px;
+  }
+
+  .progress-figure {
+    width: min(100%, 420px);
+    justify-self: center;
   }
 
   .solution-figure {
@@ -1330,6 +1501,53 @@ footer {
 }
 
 @media (max-width: 560px) {
+  .feedback-loop-diagram {
+    min-height: 490px;
+    padding: 28px 22px 30px;
+    aspect-ratio: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto 230px auto;
+    align-items: center;
+    column-gap: 18px;
+  }
+
+  .loop-step,
+  .loop-orbit {
+    position: relative;
+    inset: auto;
+    width: auto;
+    transform: none;
+  }
+
+  .loop-measure {
+    grid-column: 1 / -1;
+  }
+
+  .loop-orbit {
+    grid-column: 1 / -1;
+    width: 226px;
+    justify-self: center;
+  }
+
+  .loop-act,
+  .loop-understand {
+    align-self: start;
+  }
+
+  .loop-step > p:last-child {
+    font-size: 14px;
+  }
+
+  .loop-kicker {
+    font-size: 12px;
+  }
+
+  .loop-kicker span {
+    display: block;
+    margin: 0 0 2px;
+  }
+
   .wordmark small {
     display: none;
   }

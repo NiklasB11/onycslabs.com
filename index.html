@@ -52,7 +52,7 @@
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260727-ui1" />
+    <link rel="stylesheet" href="styles.css?v=20260727-ui2" />
     <script src="script.js?v=20260727" defer></script>
   </head>
   <body>
@@ -148,17 +148,38 @@
             your skin really responds. ONYCS closes the loop.
           </p>
         </div>
-        <div class="two-up two-up-landscape">
-          <figure>
-            <img
-              src="assets/feedback-loop.webp"
-              alt="ONYCS measure, understand and act feedback loop"
-              width="1134"
-              height="780"
-              loading="lazy"
-            />
-          </figure>
-          <figure>
+        <div class="feedback-grid">
+          <article
+            class="feedback-loop-diagram"
+            aria-label="The ONYCS measure, understand and act feedback loop"
+          >
+            <div class="loop-step loop-measure">
+              <p class="loop-kicker"><span>01</span> Measure</p>
+              <p>Reads your skin’s core signals.</p>
+            </div>
+
+            <div class="loop-orbit" aria-hidden="true">
+              <span class="loop-arrow loop-arrow-one"></span>
+              <span class="loop-arrow loop-arrow-two"></span>
+              <span class="loop-arrow loop-arrow-three"></span>
+              <span class="loop-dot loop-dot-one"></span>
+              <span class="loop-dot loop-dot-two"></span>
+              <span class="loop-dot loop-dot-three"></span>
+              <p>The feedback loop<br />skincare never had.</p>
+            </div>
+
+            <div class="loop-step loop-act">
+              <p class="loop-kicker"><span>03</span> Act</p>
+              <p>Your routine and plan, kept up to date.</p>
+            </div>
+
+            <div class="loop-step loop-understand">
+              <p class="loop-kicker"><span>02</span> Understand</p>
+              <p>What changed since last time, and why.</p>
+            </div>
+          </article>
+
+          <figure class="progress-figure">
             <img
               src="assets/progress-hand.webp"
               alt="ONYCS app showing how the user's skin changes over time"
