@@ -1304,14 +1304,14 @@ figure {
 }
 
 .founder-note {
-  padding: 200px 6%;
+  padding: 112px 6% 180px;
   background: var(--dark);
   color: var(--paper);
   text-align: center;
 }
 
 .founder-note blockquote {
-  max-width: 16ch;
+  max-width: 23ch;
   margin: 0 auto;
   font-size: max(34px, 3.5vw);
   line-height: 1.18;
@@ -1767,7 +1767,7 @@ footer {
   }
 
   .founder-note {
-    padding: 130px 22px;
+    padding: 84px 22px 130px;
   }
 
   .founder-note blockquote {
