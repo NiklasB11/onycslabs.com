@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="robots"
+      content="noindex, nofollow, noarchive, nosnippet, noimageindex"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#f2efe9" />
+    <title>ONYCS · Private access</title>
+    <link rel="stylesheet" href="gate.css" />
+    <script src="unlock.js" defer></script>
+  </head>
+  <body>
+    <main class="gate" aria-labelledby="gate-title">
+      <section class="gate-card">
+        <a class="wordmark" href="/" aria-label="Return to ONYCS home">ONYCS</a>
+        <div class="rule" aria-hidden="true"></div>
+
+        <p class="eyebrow">Private access</p>
+        <h1 id="gate-title">Product &amp; strategy</h1>
+        <p class="intro">
+          This page contains confidential pre-launch information.
+        </p>
+
+        <form id="unlock-form" class="unlock-form" novalidate>
+          <label for="password">Password</label>
+          <div class="password-field">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              spellcheck="false"
+              required
+              autofocus
+            />
+            <button
+              id="toggle-password"
+              class="toggle-password"
+              type="button"
+              aria-label="Show password"
+              aria-pressed="false"
+            >
+              Show
+            </button>
+          </div>
+          <button id="unlock-button" class="unlock-button" type="submit">
+            <span class="button-label">Enter</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="note">Access by invitation. Please don’t share.</p>
+      </section>
+    </main>
+  </body>
+</html>
