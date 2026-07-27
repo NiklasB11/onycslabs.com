@@ -74,12 +74,30 @@ a {
 }
 
 button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
 input {
   font: inherit;
 }
 
 button {
   color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 4px;
+}
+
+input:focus-visible {
+  outline: none;
+  border-color: rgba(143, 179, 154, 0.78);
+  box-shadow: 0 0 0 3px rgba(143, 179, 154, 0.16);
 }
 
 .skip-link {
@@ -204,7 +222,12 @@ button {
   text-shadow: none;
   transition:
     background 220ms ease,
-    color 220ms ease;
+    color 220ms ease,
+    transform 180ms ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
 }
 
 .is-solid .nav-cta {
@@ -286,12 +309,24 @@ button {
 
 .eyebrow {
   margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   color: var(--terracotta);
   font-family: "Aktiv Grotesk", sans-serif;
   font-size: max(13px, 0.9vw);
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  flex: none;
+  background: currentColor;
+  opacity: 0.58;
 }
 
 .eyebrow-light {
@@ -362,6 +397,15 @@ blockquote {
   letter-spacing: 0.02em;
   cursor: pointer;
   white-space: nowrap;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.waitlist-form button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px -18px rgba(20, 18, 16, 0.5);
 }
 
 .waitlist-form button:disabled {
@@ -571,7 +615,7 @@ figure {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 18px;
   background: var(--panel);
   box-shadow: 0 22px 54px -38px rgba(36, 39, 38, 0.28);
 }
@@ -602,19 +646,19 @@ figure {
 
 .how .two-up {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1080px;
   margin-inline: auto;
 }
 
 .solution-figure {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1120px;
   margin: 68px auto 0;
 }
 
 .solution-figure img,
 .image-frame {
-  border-radius: 14px;
+  border-radius: 18px;
   box-shadow: 0 26px 64px -32px rgba(36, 39, 38, 0.28);
 }
 
@@ -644,6 +688,9 @@ figure {
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--panel);
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease;
 }
 
 .image-frame img {
@@ -659,17 +706,17 @@ figure {
 }
 
 .value-images {
-  max-width: 1180px;
+  max-width: 1080px;
   margin-inline: auto;
 }
 
 .advisor-grid {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1120px;
   margin: 116px auto 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 80px;
+  gap: 92px;
   align-items: center;
 }
 
@@ -686,12 +733,23 @@ figure {
 }
 
 .advisor-card {
+  position: relative;
+  overflow: hidden;
   margin-top: 24px;
   padding: 28px 30px 32px;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
   background: var(--panel);
   box-shadow: 0 26px 64px -32px rgba(36, 39, 38, 0.28);
+}
+
+.advisor-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: var(--green);
+  opacity: 0.55;
 }
 
 .advisor-card:first-of-type {
@@ -719,7 +777,7 @@ figure {
 
 .advisor-phone img {
   width: 100%;
-  max-width: 360px;
+  max-width: 340px;
   height: auto;
   filter: drop-shadow(0 28px 34px rgba(36, 39, 38, 0.14));
 }
@@ -771,20 +829,79 @@ figure {
 .science-grid article {
   padding: 30px 28px 34px;
   border: 1px solid rgba(245, 242, 236, 0.16);
-  border-radius: 14px;
+  border-radius: 16px;
   background: rgba(245, 242, 236, 0.04);
   box-shadow: 0 26px 64px -32px rgba(0, 0, 0, 0.75);
+  transition:
+    border-color 220ms ease,
+    background-color 220ms ease,
+    transform 220ms ease;
 }
 
 .science-icon {
+  position: relative;
+  display: block;
+  width: 28px;
+  height: 28px;
   color: var(--mint);
-  font-family: var(--serif);
-  font-size: 39px;
-  line-height: 0.8;
 }
 
-.science-sun {
-  font-size: 32px;
+.science-droplet::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  width: 17px;
+  height: 20px;
+  border: 1.5px solid currentColor;
+  border-radius: 52% 52% 52% 0;
+  transform: rotate(-45deg);
+}
+
+.science-target::before,
+.science-target::after {
+  content: "";
+  position: absolute;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+}
+
+.science-target::before {
+  inset: 2px;
+  box-shadow: inset 0 0 0 5px rgba(143, 179, 154, 0.08);
+}
+
+.science-target::after {
+  inset: 9px;
+  background: currentColor;
+}
+
+.science-sun::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+}
+
+.science-sun::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow:
+    0 -12px currentColor,
+    0 12px currentColor,
+    -12px 0 currentColor,
+    12px 0 currentColor,
+    -8.5px -8.5px currentColor,
+    8.5px -8.5px currentColor,
+    -8.5px 8.5px currentColor,
+    8.5px 8.5px currentColor;
 }
 
 .science-grid h3 {
@@ -969,6 +1086,19 @@ footer {
   border: 0;
   border-radius: 3px;
   cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .image-frame:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 34px 72px -36px rgba(36, 39, 38, 0.35);
+  }
+
+  .science-grid article:hover {
+    transform: translateY(-3px);
+    border-color: rgba(143, 179, 154, 0.38);
+    background: rgba(245, 242, 236, 0.065);
+  }
 }
 
 @media (max-width: 1100px) {
@@ -1164,12 +1294,8 @@ footer {
     gap: 60px;
   }
 
-  .advisor-phone {
-    order: -1;
-  }
-
   .advisor-phone img {
-    max-width: 330px;
+    max-width: 280px;
   }
 
   .science-grid {
