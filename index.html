@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#1e1a16" />
     <link rel="canonical" href="https://onycslabs.com/" />
+    <script>
+      if (
+        location.protocol === "http:" &&
+        (location.hostname === "onycslabs.com" ||
+          location.hostname === "www.onycslabs.com")
+      ) {
+        location.replace(
+          `https://onycslabs.com${location.pathname}${location.search}${location.hash}`,
+        );
+      }
+    </script>
     <meta
       name="description"
       content="Scan your skin in seconds and receive personalized skincare guidance based on real measurements."
