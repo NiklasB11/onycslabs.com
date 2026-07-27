@@ -988,21 +988,17 @@ figure {
 }
 
 .solution {
-  display: grid;
-  grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
-  align-items: center;
-  column-gap: clamp(56px, 7vw, 112px);
+  display: block;
 }
 
 .solution .section-heading {
-  max-width: 500px;
+  max-width: 680px;
 }
 
 .solution-figure {
   width: 100%;
-  max-width: 760px;
-  margin: 0;
-  justify-self: end;
+  max-width: 980px;
+  margin: 68px auto 0;
 }
 
 .solution-figure img,
@@ -1019,18 +1015,48 @@ figure {
   filter: brightness(0.96) contrast(1.02) saturate(0.92) sepia(0.08);
 }
 
-.solution-figure figcaption {
-  margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  color: var(--body);
-  font-size: 14px;
-  line-height: 1.45;
+.solution-labels {
+  margin: 0 0 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(40px, 8vw, 120px);
 }
 
-.solution-figure figcaption span:last-child {
+.solution-label {
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.solution-label:last-child {
   text-align: right;
+}
+
+.solution-label > span {
+  color: var(--terracotta);
+  font-family: "Aktiv Grotesk", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.solution-label h3 {
+  margin: 7px 0 0;
+  color: var(--ink);
+  font-size: clamp(26px, 2.2vw, 34px);
+  line-height: 1.1;
+}
+
+.solution-label p {
+  max-width: 31ch;
+  margin: 8px 0 0;
+  color: var(--body);
+  font-size: 14px;
+  line-height: 1.48;
+}
+
+.solution-label:last-child p {
+  margin-left: auto;
 }
 
 .image-frame {
@@ -1713,7 +1739,7 @@ footer {
 
   .solution-figure {
     width: 100%;
-    max-width: 680px;
+    max-width: 760px;
     margin: 52px auto 0;
     justify-self: auto;
   }
@@ -1722,13 +1748,8 @@ footer {
     aspect-ratio: 1456 / 819;
   }
 
-  .solution-figure figcaption {
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .solution-figure figcaption span:last-child {
-    text-align: left;
+  .solution-labels {
+    gap: 28px;
   }
 
   .advisor-grid {
@@ -1772,6 +1793,24 @@ footer {
 }
 
 @media (max-width: 560px) {
+  .solution-labels {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-bottom: 22px;
+  }
+
+  .solution-label {
+    padding-top: 14px;
+  }
+
+  .solution-label:last-child {
+    text-align: left;
+  }
+
+  .solution-label:last-child p {
+    margin-left: 0;
+  }
+
   .feedback-stage {
     padding: 0;
   }
