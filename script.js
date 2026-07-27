@@ -33,31 +33,51 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeMenu();
 });
 
-const readingCard = document.querySelector(".reading-card");
-const readingSummary = readingCard?.querySelector(".reading-summary");
+const readingCards = Array.from(
+  document.querySelectorAll("[data-reading-card]"),
+);
 
-function setReadingExpanded(expanded) {
-  readingCard?.classList.toggle("is-expanded", expanded);
-  readingSummary?.setAttribute("aria-expanded", String(expanded));
+function setReadingExpanded(card, expanded) {
+  if (expanded) {
+    readingCards.forEach((otherCard) => {
+      if (otherCard === card) return;
+      otherCard.classList.remove("is-expanded");
+      otherCard
+        .querySelector(".reading-summary")
+        ?.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  card.classList.toggle("is-expanded", expanded);
+  card
+    .querySelector(".reading-summary")
+    ?.setAttribute("aria-expanded", String(expanded));
 }
 
-readingSummary?.addEventListener("click", () => {
-  const willExpand = !readingCard.classList.contains("is-expanded");
-  setReadingExpanded(willExpand);
-  if (!willExpand) readingSummary.blur();
+readingCards.forEach((card) => {
+  const summary = card.querySelector(".reading-summary");
+  summary?.addEventListener("click", () => {
+    const willExpand = !card.classList.contains("is-expanded");
+    setReadingExpanded(card, willExpand);
+    if (!willExpand) summary.blur();
+  });
 });
 
 document.addEventListener("click", (event) => {
-  if (readingCard?.contains(event.target)) return;
-  setReadingExpanded(false);
+  readingCards.forEach((card) => {
+    if (card.contains(event.target)) return;
+    setReadingExpanded(card, false);
+  });
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape" || !readingCard?.classList.contains("is-expanded")) {
-    return;
-  }
-  setReadingExpanded(false);
-  readingSummary?.blur();
+  if (event.key !== "Escape") return;
+
+  readingCards.forEach((card) => {
+    if (!card.classList.contains("is-expanded")) return;
+    setReadingExpanded(card, false);
+    card.querySelector(".reading-summary")?.blur();
+  });
 });
 
 const waitlistForms = document.querySelectorAll("[data-waitlist-form]");

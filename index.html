@@ -52,8 +52,8 @@
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260727-ui5" />
-    <script src="script.js?v=20260727-motion2" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260727-ui6" />
+    <script src="script.js?v=20260727-motion3" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -119,19 +119,23 @@
           </div>
         </div>
 
-        <aside class="reading-card" aria-label="Example ONYCS skin reading">
+        <aside
+          class="reading-card reading-card-balance"
+          data-reading-card
+          aria-label="Live skin balance reading"
+        >
           <button
             class="reading-summary"
             type="button"
             aria-expanded="false"
-            aria-controls="reading-details"
+            aria-controls="balance-details"
           >
             <span class="score-ring"><span>76</span></span>
             <strong>Skin balance</strong>
             <span class="reading-live" aria-hidden="true"></span>
           </button>
 
-          <div id="reading-details" class="reading-details">
+          <div id="balance-details" class="reading-details">
             <div class="reading-details-inner">
               <p class="reading-status">
                 <strong>Balanced</strong>
@@ -139,24 +143,86 @@
               </p>
               <div class="reading-metrics">
                 <p>
-                  <span>Hydration 68%</span><em>Optimal</em
-                  ><small>Measured</small>
-                </p>
-                <p>
-                  <span>Oiliness 61%</span><em class="warm">Slightly high</em
-                  ><small>Measured</small>
-                </p>
-                <p>
-                  <span>Skin type</span><em>Combination</em
-                  ><small>Personalised</small>
-                </p>
-                <p>
-                  <span>Today</span><em>Hydrate + SPF</em
-                  ><small>Recommended</small>
+                  <span>16-week trend</span><em>+12</em
+                  ><small>Improving</small>
                 </p>
               </div>
               <p class="reading-note">
-                Dry air today — light hydration + SPF.
+                Moisture and oil are close to your ideal range.
+              </p>
+            </div>
+          </div>
+        </aside>
+
+        <aside
+          class="reading-card reading-card-hydration"
+          data-reading-card
+          aria-label="Live skin hydration reading"
+        >
+          <button
+            class="reading-summary"
+            type="button"
+            aria-expanded="false"
+            aria-controls="hydration-details"
+          >
+            <span class="score-ring score-ring-hydration"
+              ><span>68<small>%</small></span></span
+            >
+            <strong>Hydration</strong>
+            <span class="reading-live" aria-hidden="true"></span>
+          </button>
+
+          <div id="hydration-details" class="reading-details">
+            <div class="reading-details-inner">
+              <p class="reading-status">
+                <strong>Optimal</strong>
+                <span>Measured live</span>
+              </p>
+              <div class="reading-metrics">
+                <p>
+                  <span>7-day trend</span><em>+6</em
+                  ><small>Improving</small>
+                </p>
+              </div>
+              <p class="reading-note">
+                Dry air today — add a light hydrating step.
+              </p>
+            </div>
+          </div>
+        </aside>
+
+        <aside
+          class="reading-card reading-card-oil"
+          data-reading-card
+          aria-label="Live skin oil balance reading"
+        >
+          <button
+            class="reading-summary"
+            type="button"
+            aria-expanded="false"
+            aria-controls="oil-details"
+          >
+            <span class="score-ring score-ring-oil"
+              ><span>61<small>%</small></span></span
+            >
+            <strong>Oil balance</strong>
+            <span class="reading-live reading-live-warm" aria-hidden="true"></span>
+          </button>
+
+          <div id="oil-details" class="reading-details">
+            <div class="reading-details-inner">
+              <p class="reading-status">
+                <strong>Slightly high</strong>
+                <span>Measured live</span>
+              </p>
+              <div class="reading-metrics">
+                <p>
+                  <span>Since last scan</span><em class="warm">+3</em
+                  ><small>Watch</small>
+                </p>
+              </div>
+              <p class="reading-note">
+                Choose lighter layers and keep hydration steady.
               </p>
             </div>
           </div>
