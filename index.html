@@ -52,7 +52,7 @@
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260727-ui7" />
+    <link rel="stylesheet" href="styles.css?v=20260727-ui8" />
     <script src="script.js?v=20260727-motion3" defer></script>
   </head>
   <body>
@@ -161,30 +161,33 @@
           aria-label="Personalised skin type"
         >
           <button
-            class="reading-summary"
+            class="reading-summary reading-summary-insight"
             type="button"
             aria-expanded="false"
             aria-controls="skin-type-details"
           >
-            <span class="score-ring score-ring-type"><span>C</span></span>
-            <strong>Skin type</strong>
+            <span class="reading-compact-copy">
+              <span>Skin type</span>
+              <strong>Dry–Sensitive</strong>
+            </span>
+            <span class="reading-compact-expand" aria-hidden="true">+</span>
           </button>
 
           <div id="skin-type-details" class="reading-details">
             <div class="reading-details-inner">
               <p class="reading-status">
-                <strong>Combination</strong>
+                <strong>Dry–Sensitive</strong>
               </p>
               <div class="reading-metrics">
                 <p>
-                  <span>Hydration pattern</span><em>Balanced</em>
+                  <span>Hydration pattern</span><em>Runs low</em>
                 </p>
                 <p>
-                  <span>Oil pattern</span><em class="warm">T-zone</em>
+                  <span>Sensitivity</span><em class="warm">Reactive</em>
                 </p>
               </div>
               <p class="reading-note">
-                Oilier through the T-zone with balanced cheeks.
+                Loses moisture quickly and responds best to gentler actives.
               </p>
             </div>
           </div>
@@ -196,13 +199,16 @@
           aria-label="Current product response"
         >
           <button
-            class="reading-summary"
+            class="reading-summary reading-summary-insight"
             type="button"
             aria-expanded="false"
             aria-controls="product-details"
           >
-            <span class="score-ring score-ring-product"><span>✓</span></span>
-            <strong>Product response</strong>
+            <span class="reading-compact-copy">
+              <span>Product response</span>
+              <strong>Serum is working</strong>
+            </span>
+            <span class="reading-compact-expand" aria-hidden="true">+</span>
           </button>
 
           <div id="product-details" class="reading-details">
