@@ -52,8 +52,8 @@
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260727-ui4" />
-    <script src="script.js?v=20260727-motion1" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260727-ui5" />
+    <script src="script.js?v=20260727-motion2" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -120,21 +120,46 @@
         </div>
 
         <aside class="reading-card" aria-label="Example ONYCS skin reading">
-          <div class="reading-score">
-            <div class="score-ring"><span>76</span></div>
-            <div>
-              <p>Skin balance</p>
-              <strong>Balanced</strong>
+          <button
+            class="reading-summary"
+            type="button"
+            aria-expanded="false"
+            aria-controls="reading-details"
+          >
+            <span class="score-ring"><span>76</span></span>
+            <strong>Skin balance</strong>
+            <span class="reading-live" aria-hidden="true"></span>
+          </button>
+
+          <div id="reading-details" class="reading-details">
+            <div class="reading-details-inner">
+              <p class="reading-status">
+                <strong>Balanced</strong>
+                <span>Updated just now</span>
+              </p>
+              <div class="reading-metrics">
+                <p>
+                  <span>Hydration 68%</span><em>Optimal</em
+                  ><small>Measured</small>
+                </p>
+                <p>
+                  <span>Oiliness 61%</span><em class="warm">Slightly high</em
+                  ><small>Measured</small>
+                </p>
+                <p>
+                  <span>Skin type</span><em>Combination</em
+                  ><small>Personalised</small>
+                </p>
+                <p>
+                  <span>Today</span><em>Hydrate + SPF</em
+                  ><small>Recommended</small>
+                </p>
+              </div>
+              <p class="reading-note">
+                Dry air today — light hydration + SPF.
+              </p>
             </div>
           </div>
-          <div class="reading-metrics">
-            <p><span>Hydration 68%</span><em>Optimal</em><small>Measured</small></p>
-            <p>
-              <span>Oiliness 61%</span><em class="warm">Slightly high</em
-              ><small>Measured</small>
-            </p>
-          </div>
-          <p class="reading-note">Dry air today — light hydration + SPF.</p>
         </aside>
       </section>
 

@@ -33,6 +33,33 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeMenu();
 });
 
+const readingCard = document.querySelector(".reading-card");
+const readingSummary = readingCard?.querySelector(".reading-summary");
+
+function setReadingExpanded(expanded) {
+  readingCard?.classList.toggle("is-expanded", expanded);
+  readingSummary?.setAttribute("aria-expanded", String(expanded));
+}
+
+readingSummary?.addEventListener("click", () => {
+  const willExpand = !readingCard.classList.contains("is-expanded");
+  setReadingExpanded(willExpand);
+  if (!willExpand) readingSummary.blur();
+});
+
+document.addEventListener("click", (event) => {
+  if (readingCard?.contains(event.target)) return;
+  setReadingExpanded(false);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || !readingCard?.classList.contains("is-expanded")) {
+    return;
+  }
+  setReadingExpanded(false);
+  readingSummary?.blur();
+});
+
 const waitlistForms = document.querySelectorAll("[data-waitlist-form]");
 
 function setJoined(email) {

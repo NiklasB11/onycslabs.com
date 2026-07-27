@@ -458,23 +458,38 @@ blockquote {
 .reading-card {
   position: absolute;
   z-index: 3;
-  right: min(clamp(20px, 11vw, 320px), calc(48% - min(500px, 42vw)));
+  right: 6%;
   bottom: clamp(40px, 7vh, 96px);
-  width: min(500px, 42vw);
-  padding: 36px;
+  width: 264px;
+  padding: 13px 15px;
+  overflow: hidden;
   box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.8);
+  transition:
+    width 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    padding 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 350ms ease,
+    box-shadow 350ms ease;
 }
 
-.reading-score {
-  display: flex;
+.reading-summary {
+  width: 100%;
+  min-height: 58px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) 10px;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .score-ring {
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   background: conic-gradient(
     from 210deg,
@@ -486,7 +501,7 @@ blockquote {
 .score-ring::after {
   content: "";
   position: absolute;
-  inset: 8px;
+  inset: 6px;
   border-radius: 50%;
   background: rgba(20, 18, 16, 0.92);
 }
@@ -498,32 +513,89 @@ blockquote {
   display: grid;
   place-items: center;
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 300;
 }
 
-.reading-score p {
-  margin: 0;
-  color: rgba(245, 242, 236, 0.72);
-  font-family: "Aktiv Grotesk", sans-serif;
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+.reading-summary > strong {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.1;
 }
 
-.reading-score strong {
-  display: block;
-  margin-top: 5px;
+.reading-live {
+  position: relative;
+  width: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 0 0 rgba(143, 179, 154, 0.48);
+  animation: reading-pulse 2.4s ease-out infinite;
+}
+
+@keyframes reading-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(143, 179, 154, 0.5);
+  }
+  55%,
+  100% {
+    box-shadow: 0 0 0 9px rgba(143, 179, 154, 0);
+  }
+}
+
+.reading-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 260ms ease;
+}
+
+.reading-details-inner {
+  padding-top: 20px;
+}
+
+.reading-card:focus-within,
+.reading-card.is-expanded {
+  width: min(500px, 42vw);
+  padding: 30px 32px 32px;
+  background: rgba(30, 26, 22, 0.68);
+  box-shadow: 0 36px 80px -34px rgba(0, 0, 0, 0.9);
+}
+
+.reading-card:focus-within .reading-details,
+.reading-card.is-expanded .reading-details {
+  max-height: 440px;
+  opacity: 1;
+}
+
+.reading-status {
+  margin: 0;
+  padding-top: 16px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.reading-status strong {
   font-family: var(--serif);
-  font-size: 29px;
+  font-size: 26px;
   font-weight: 400;
 }
 
+.reading-status span {
+  color: rgba(245, 242, 236, 0.54);
+  font-size: 12px;
+}
+
 .reading-metrics {
-  margin-top: 22px;
+  margin-top: 18px;
   display: grid;
-  gap: 13px;
+  gap: 11px;
 }
 
 .reading-metrics p {
@@ -618,7 +690,7 @@ figure {
   margin: 0 auto;
   padding: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.68fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.72fr);
   grid-template-rows: auto 1fr;
   column-gap: clamp(48px, 6vw, 88px);
 }
@@ -769,10 +841,11 @@ figure {
   z-index: 1;
   grid-column: 2;
   grid-row: 1 / 3;
-  align-self: center;
+  align-self: end;
   justify-self: end;
-  width: 100%;
+  width: min(108%, 440px);
   aspect-ratio: 1086 / 1448;
+  margin-bottom: -14px;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 24px;
@@ -1250,6 +1323,18 @@ footer {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .reading-card:hover {
+    width: min(500px, 42vw);
+    padding: 30px 32px 32px;
+    background: rgba(30, 26, 22, 0.68);
+    box-shadow: 0 36px 80px -34px rgba(0, 0, 0, 0.9);
+  }
+
+  .reading-card:hover .reading-details {
+    max-height: 440px;
+    opacity: 1;
+  }
+
   .image-frame:hover {
     transform: translateY(-3px);
     box-shadow: 0 34px 72px -36px rgba(36, 39, 38, 0.35);
@@ -1287,8 +1372,15 @@ footer {
 
   .reading-card {
     right: 4%;
-    width: 39vw;
-    padding: 26px;
+    width: 250px;
+    padding: 12px 14px;
+  }
+
+  .reading-card:hover,
+  .reading-card:focus-within,
+  .reading-card.is-expanded {
+    width: min(460px, 44vw);
+    padding: 24px 26px 26px;
   }
 
   .reading-metrics p {
@@ -1403,8 +1495,14 @@ footer {
   .reading-card {
     right: 22px;
     bottom: 54px;
-    left: 22px;
-    width: auto;
+    left: auto;
+    width: 240px;
+  }
+
+  .reading-card:hover,
+  .reading-card:focus-within,
+  .reading-card.is-expanded {
+    width: min(430px, calc(100% - 44px));
   }
 
   .section,
@@ -1447,6 +1545,7 @@ footer {
     grid-row: auto;
     width: min(100%, 410px);
     margin-top: 48px;
+    margin-bottom: 0;
     justify-self: center;
   }
 
@@ -1602,7 +1701,15 @@ footer {
   }
 
   .reading-card {
-    padding: 24px;
+    width: 228px;
+    padding: 11px 13px;
+  }
+
+  .reading-card:hover,
+  .reading-card:focus-within,
+  .reading-card.is-expanded {
+    width: calc(100% - 40px);
+    padding: 20px;
   }
 
   .reading-metrics span,
@@ -1611,16 +1718,22 @@ footer {
   }
 
   .score-ring {
-    width: 66px;
-    height: 66px;
+    width: 52px;
+    height: 52px;
   }
 
   .score-ring span {
-    font-size: 27px;
+    font-size: 22px;
   }
 
-  .reading-score strong {
-    font-size: 25px;
+  .reading-summary {
+    min-height: 52px;
+    grid-template-columns: 52px minmax(0, 1fr) 8px;
+    gap: 12px;
+  }
+
+  .reading-summary > strong {
+    font-size: 19px;
   }
 
   .advisor-card {
@@ -1699,6 +1812,7 @@ footer {
   *,
   *::before,
   *::after {
+    animation: none !important;
     scroll-behavior: auto !important;
     transition: none !important;
   }
