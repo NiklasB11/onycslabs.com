@@ -502,7 +502,7 @@ blockquote {
   min-height: 58px;
   padding: 0;
   display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 58px;
   align-items: center;
   gap: 14px;
   border: 0;
@@ -557,25 +557,36 @@ blockquote {
 .reading-state-skin::before {
   content: "";
   position: absolute;
-  top: 8px;
-  left: 8px;
-  width: 11px;
-  height: 11px;
-  border: 1.5px solid #c29372;
-  border-radius: 70% 35% 70% 35%;
-  transform: rotate(45deg);
+  inset: 7px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from -35deg,
+    #c29372 0 42%,
+    transparent 42% 50%,
+    #8fb39a 50% 92%,
+    transparent 92%
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 2px),
+    #000 calc(100% - 2px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 2px),
+    #000 calc(100% - 2px)
+  );
 }
 
 .reading-state-skin::after {
   content: "";
   position: absolute;
-  right: 7px;
-  bottom: 7px;
-  width: 5px;
+  top: calc(50% - 2px);
+  left: calc(50% - 2px);
+  width: 4px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: #d9ae7e;
-  box-shadow: 0 0 0 3px rgba(217, 174, 126, 0.12);
+  background: rgba(245, 242, 236, 0.72);
 }
 
 .reading-state-product {
@@ -1850,7 +1861,7 @@ footer {
 
   .reading-summary {
     min-height: 52px;
-    grid-template-columns: 52px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 52px;
     gap: 12px;
   }
 
