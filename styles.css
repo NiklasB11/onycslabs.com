@@ -276,11 +276,12 @@ input:focus-visible {
 .hero-fade {
   position: absolute;
   z-index: 1;
-  inset: auto 0 -1px;
-  height: clamp(150px, 14vw, 220px);
+  inset: auto 0 0;
+  height: clamp(92px, 8vw, 124px);
   background: linear-gradient(
     to bottom,
     rgba(245, 242, 236, 0) 0%,
+    var(--paper) 88%,
     var(--paper) 100%
   );
 }
@@ -753,7 +754,11 @@ blockquote {
 }
 
 .how {
+  position: relative;
+  z-index: 2;
+  margin-top: -1px;
   border-top: 0;
+  background: var(--paper);
 }
 
 .section-heading {
