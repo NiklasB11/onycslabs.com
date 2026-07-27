@@ -992,13 +992,13 @@ figure {
 }
 
 .solution .section-heading {
-  max-width: 680px;
+  max-width: 720px;
 }
 
 .solution-figure {
   width: 100%;
-  max-width: 980px;
-  margin: 68px auto 0;
+  max-width: 1080px;
+  margin: 54px auto 0;
 }
 
 .solution-figure img,
@@ -1009,21 +1009,21 @@ figure {
 
 .solution-figure img {
   width: 100%;
-  aspect-ratio: 1456 / 819;
+  aspect-ratio: 2.14 / 1;
   object-fit: cover;
   object-position: center;
   filter: brightness(0.96) contrast(1.02) saturate(0.92) sepia(0.08);
 }
 
 .solution-labels {
-  margin: 0 0 28px;
+  margin: 30px 0 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(40px, 8vw, 120px);
+  gap: clamp(40px, 7vw, 96px);
 }
 
 .solution-label {
-  padding-top: 18px;
+  padding-top: 16px;
   border-top: 1px solid var(--line);
 }
 
@@ -1041,17 +1041,17 @@ figure {
 }
 
 .solution-label h3 {
-  margin: 7px 0 0;
+  margin: 6px 0 0;
   color: var(--ink);
-  font-size: clamp(26px, 2.2vw, 34px);
+  font-size: clamp(24px, 2vw, 30px);
   line-height: 1.1;
 }
 
 .solution-label p {
   max-width: 31ch;
-  margin: 8px 0 0;
+  margin: 7px 0 0;
   color: var(--body);
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.48;
 }
 
@@ -1740,7 +1740,7 @@ footer {
   .solution-figure {
     width: 100%;
     max-width: 760px;
-    margin: 52px auto 0;
+    margin: 48px auto 0;
     justify-self: auto;
   }
 
@@ -1750,6 +1750,7 @@ footer {
 
   .solution-labels {
     gap: 28px;
+    margin-top: 24px;
   }
 
   .advisor-grid {
@@ -1796,7 +1797,7 @@ footer {
   .solution-labels {
     grid-template-columns: 1fr;
     gap: 22px;
-    margin-bottom: 22px;
+    margin-top: 22px;
   }
 
   .solution-label {
