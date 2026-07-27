@@ -526,7 +526,8 @@ blockquote {
 }
 
 .section {
-  padding: 125px 6%;
+  padding-block: clamp(120px, 8vw, 156px);
+  padding-inline: max(6%, calc((100% - 1360px) / 2));
   border-top: 1px solid rgba(36, 39, 38, 0.08);
 }
 
@@ -556,10 +557,10 @@ blockquote {
 }
 
 .two-up {
-  margin-top: 56px;
+  margin-top: 68px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
+  gap: 40px;
 }
 
 figure {
@@ -572,22 +573,43 @@ figure {
   border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--panel);
+  box-shadow: 0 22px 54px -38px rgba(36, 39, 38, 0.28);
 }
 
 .two-up-landscape img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-
-.two-up-landscape figure:first-child img {
   object-fit: contain;
 }
 
+.two-up-landscape figure:last-child {
+  position: relative;
+  isolation: isolate;
+  background: #b7a184;
+}
+
+.two-up-landscape figure:last-child::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -24px;
+  background: url("assets/progress-hand.webp") center / cover;
+  filter: blur(22px) saturate(0.7);
+  opacity: 0.2;
+}
+
+.how .two-up {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
 .solution-figure {
-  width: 90vw;
-  max-width: 1600px;
-  margin: 56px auto 0;
+  width: 100%;
+  max-width: 1280px;
+  margin: 68px auto 0;
 }
 
 .solution-figure img,
@@ -636,11 +658,18 @@ figure {
   font-size: max(15px, 1vw);
 }
 
+.value-images {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
 .advisor-grid {
-  margin-top: 88px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 116px auto 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 64px;
+  gap: 80px;
   align-items: center;
 }
 
@@ -690,7 +719,7 @@ figure {
 
 .advisor-phone img {
   width: 100%;
-  max-width: 400px;
+  max-width: 360px;
   height: auto;
   filter: drop-shadow(0 28px 34px rgba(36, 39, 38, 0.14));
 }
@@ -716,7 +745,8 @@ figure {
 
 .science-content {
   position: relative;
-  padding: 125px 6%;
+  padding-block: clamp(120px, 8vw, 156px);
+  padding-inline: max(6%, calc((100% - 1360px) / 2));
 }
 
 .science .eyebrow {
@@ -1088,7 +1118,7 @@ footer {
 
   .section,
   .science-content {
-    padding: 88px 22px;
+    padding: 96px 22px;
   }
 
   .section-heading h2,
@@ -1103,7 +1133,13 @@ footer {
   }
 
   .two-up {
+    margin-top: 52px;
     gap: 24px;
+  }
+
+  .how .two-up,
+  .value-images {
+    max-width: 600px;
   }
 
   .solution-figure {
@@ -1111,7 +1147,7 @@ footer {
   }
 
   .solution-figure img {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 2 / 1;
   }
 
   .solution-figure figcaption {
@@ -1124,7 +1160,8 @@ footer {
   }
 
   .advisor-grid {
-    gap: 52px;
+    margin-top: 84px;
+    gap: 60px;
   }
 
   .advisor-phone {
@@ -1216,10 +1253,6 @@ footer {
 
   .reading-score strong {
     font-size: 25px;
-  }
-
-  .two-up-landscape figure {
-    aspect-ratio: 1;
   }
 
   .advisor-card {
