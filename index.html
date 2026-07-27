@@ -52,7 +52,7 @@
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260727-ui8" />
+    <link rel="stylesheet" href="styles.css?v=20260727-ui9" />
     <script src="script.js?v=20260727-motion3" defer></script>
   </head>
   <body>
@@ -170,7 +170,10 @@
               <span>Skin type</span>
               <strong>Dry–Sensitive</strong>
             </span>
-            <span class="reading-compact-expand" aria-hidden="true">+</span>
+            <span
+              class="reading-state reading-state-skin"
+              aria-hidden="true"
+            ></span>
           </button>
 
           <div id="skin-type-details" class="reading-details">
@@ -208,7 +211,12 @@
               <span>Product response</span>
               <strong>Serum is working</strong>
             </span>
-            <span class="reading-compact-expand" aria-hidden="true">+</span>
+            <span
+              class="reading-state reading-state-product"
+              aria-hidden="true"
+            >
+              <i></i><i></i><i></i>
+            </span>
           </button>
 
           <div id="product-details" class="reading-details">
