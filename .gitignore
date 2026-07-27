@@ -1,2 +1,3 @@
 # Private source images are embedded inside the encrypted product payload.
 product/assets/app-screens/
+product-source.html
