@@ -52,7 +52,7 @@
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260727-ui6" />
+    <link rel="stylesheet" href="styles.css?v=20260727-ui7" />
     <script src="script.js?v=20260727-motion3" defer></script>
   </head>
   <body>
@@ -132,19 +132,20 @@
           >
             <span class="score-ring"><span>76</span></span>
             <strong>Skin balance</strong>
-            <span class="reading-live" aria-hidden="true"></span>
           </button>
 
           <div id="balance-details" class="reading-details">
             <div class="reading-details-inner">
               <p class="reading-status">
                 <strong>Balanced</strong>
-                <span>Updated just now</span>
               </p>
               <div class="reading-metrics">
                 <p>
-                  <span>16-week trend</span><em>+12</em
-                  ><small>Improving</small>
+                  <span>Hydration 68%</span><em>Optimal</em>
+                </p>
+                <p>
+                  <span>Oil balance 61%</span
+                  ><em class="warm">Slightly high</em>
                 </p>
               </div>
               <p class="reading-note">
@@ -155,74 +156,70 @@
         </aside>
 
         <aside
-          class="reading-card reading-card-hydration"
+          class="reading-card reading-card-type"
           data-reading-card
-          aria-label="Live skin hydration reading"
+          aria-label="Personalised skin type"
         >
           <button
             class="reading-summary"
             type="button"
             aria-expanded="false"
-            aria-controls="hydration-details"
+            aria-controls="skin-type-details"
           >
-            <span class="score-ring score-ring-hydration"
-              ><span>68<small>%</small></span></span
-            >
-            <strong>Hydration</strong>
-            <span class="reading-live" aria-hidden="true"></span>
+            <span class="score-ring score-ring-type"><span>C</span></span>
+            <strong>Skin type</strong>
           </button>
 
-          <div id="hydration-details" class="reading-details">
+          <div id="skin-type-details" class="reading-details">
             <div class="reading-details-inner">
               <p class="reading-status">
-                <strong>Optimal</strong>
-                <span>Measured live</span>
+                <strong>Combination</strong>
               </p>
               <div class="reading-metrics">
                 <p>
-                  <span>7-day trend</span><em>+6</em
-                  ><small>Improving</small>
+                  <span>Hydration pattern</span><em>Balanced</em>
+                </p>
+                <p>
+                  <span>Oil pattern</span><em class="warm">T-zone</em>
                 </p>
               </div>
               <p class="reading-note">
-                Dry air today — add a light hydrating step.
+                Oilier through the T-zone with balanced cheeks.
               </p>
             </div>
           </div>
         </aside>
 
         <aside
-          class="reading-card reading-card-oil"
+          class="reading-card reading-card-product"
           data-reading-card
-          aria-label="Live skin oil balance reading"
+          aria-label="Current product response"
         >
           <button
             class="reading-summary"
             type="button"
             aria-expanded="false"
-            aria-controls="oil-details"
+            aria-controls="product-details"
           >
-            <span class="score-ring score-ring-oil"
-              ><span>61<small>%</small></span></span
-            >
-            <strong>Oil balance</strong>
-            <span class="reading-live reading-live-warm" aria-hidden="true"></span>
+            <span class="score-ring score-ring-product"><span>✓</span></span>
+            <strong>Product response</strong>
           </button>
 
-          <div id="oil-details" class="reading-details">
+          <div id="product-details" class="reading-details">
             <div class="reading-details-inner">
               <p class="reading-status">
-                <strong>Slightly high</strong>
-                <span>Measured live</span>
+                <strong>Working well</strong>
               </p>
               <div class="reading-metrics">
                 <p>
-                  <span>Since last scan</span><em class="warm">+3</em
-                  ><small>Watch</small>
+                  <span>Hydrating serum</span><em>+8 hydration</em>
+                </p>
+                <p>
+                  <span>Since added</span><em>16 weeks</em>
                 </p>
               </div>
               <p class="reading-note">
-                Choose lighter layers and keep hydration steady.
+                Keep it in your routine — your skin is responding positively.
               </p>
             </div>
           </div>
