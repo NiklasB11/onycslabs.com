@@ -463,6 +463,7 @@ blockquote {
   overflow: hidden;
   box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.8);
   transition:
+    top 420ms cubic-bezier(0.22, 1, 0.36, 1),
     width 420ms cubic-bezier(0.22, 1, 0.36, 1),
     padding 420ms cubic-bezier(0.22, 1, 0.36, 1),
     background-color 350ms ease,
@@ -482,8 +483,8 @@ blockquote {
 }
 
 .reading-card-product {
-  top: auto;
-  bottom: 7%;
+  top: 64%;
+  bottom: auto;
   left: 61%;
   animation: reading-float 8.5s ease-in-out -5.2s infinite;
 }
@@ -1449,6 +1450,19 @@ footer {
     transform: translateY(-3px);
     border-color: rgba(143, 179, 154, 0.38);
     background: rgba(245, 242, 236, 0.065);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 821px) {
+  .reading-card-product:hover {
+    top: calc(64% - 126px);
+  }
+}
+
+@media (min-width: 821px) {
+  .reading-card-product:focus-within,
+  .reading-card-product.is-expanded {
+    top: calc(64% - 126px);
   }
 }
 
