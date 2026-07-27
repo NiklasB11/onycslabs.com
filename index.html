@@ -52,7 +52,7 @@
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260727-ui16" />
+    <link rel="stylesheet" href="styles.css?v=20260727-ui17" />
     <script src="script.js?v=20260727-motion3" defer></script>
   </head>
   <body>
@@ -82,14 +82,20 @@
 
     <main id="main">
       <section id="top" class="hero">
-        <img
-          class="hero-image"
-          src="assets/hero.webp"
-          alt="Woman measuring her skin with the ONYCS device"
-          width="1456"
-          height="819"
-          fetchpriority="high"
-        />
+        <picture class="hero-media">
+          <source
+            media="(max-width: 820px)"
+            srcset="assets/hero-mobile.webp?v=20260727-mobile1"
+          />
+          <img
+            class="hero-image"
+            src="assets/hero.webp"
+            alt="Woman measuring her skin with the ONYCS device"
+            width="1456"
+            height="819"
+            fetchpriority="high"
+          />
+        </picture>
         <div class="hero-fade" aria-hidden="true"></div>
         <div class="hero-copy">
           <div class="glass-panel">
@@ -318,13 +324,19 @@
           </p>
         </div>
         <figure class="solution-figure">
-          <img
-            src="assets/device-app.webp?v=20260727-final"
-            alt="ONYCS device and app on natural stone"
-            width="1672"
-            height="941"
-            loading="lazy"
-          />
+          <picture class="solution-media">
+            <source
+              media="(max-width: 820px)"
+              srcset="assets/device-app-mobile.webp?v=20260727-mobile1"
+            />
+            <img
+              src="assets/device-app.webp?v=20260727-final"
+              alt="ONYCS device and app on natural stone"
+              width="1672"
+              height="941"
+              loading="lazy"
+            />
+          </picture>
           <figcaption class="solution-labels">
             <div class="solution-label">
               <span>01 · Measure</span>
