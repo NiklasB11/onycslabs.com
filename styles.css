@@ -257,13 +257,25 @@ input:focus-visible {
   position: relative;
   min-height: 100svh;
   overflow: hidden;
-  background: var(--dark);
+  background: var(--paper);
 }
 
 .hero-media {
   position: absolute;
   inset: 0;
   display: block;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 calc(100% - 104px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 calc(100% - 104px),
+    transparent 100%
+  );
 }
 
 .hero-image {
@@ -274,16 +286,7 @@ input:focus-visible {
 }
 
 .hero-fade {
-  position: absolute;
-  z-index: 1;
-  inset: auto 0 0;
-  height: clamp(92px, 8vw, 124px);
-  background: linear-gradient(
-    to bottom,
-    rgba(245, 242, 236, 0) 0%,
-    var(--paper) 88%,
-    var(--paper) 100%
-  );
+  display: none;
 }
 
 .hero-copy {
@@ -935,19 +938,46 @@ figure {
 }
 
 .process-return {
-  margin: 18px 0 0 76px;
-  display: flex;
+  margin: 8px 0 0;
+  padding-top: 24px;
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
   align-items: center;
-  gap: 12px;
-  color: var(--body);
-  font-size: 14px;
+  gap: 24px;
+  border-top: 1px solid var(--line);
 }
 
-.process-return span {
-  flex: none;
+.process-return-mark {
+  width: 52px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(92, 110, 91, 0.42);
+  border-radius: 50%;
+  background: rgba(143, 179, 154, 0.08);
   color: var(--green);
-  font-size: 22px;
+  font-size: 30px;
   line-height: 1;
+}
+
+.process-return p {
+  margin: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.process-return strong {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.process-return p span {
+  color: var(--body);
+  font-size: 15px;
+  line-height: 1.45;
 }
 
 .feedback-phone {
@@ -1640,6 +1670,7 @@ footer {
   .hero {
     min-height: 0;
     padding-bottom: 64px;
+    background: var(--dark);
   }
 
   .hero-media {
@@ -1647,6 +1678,8 @@ footer {
     inset: auto;
     width: 100%;
     aspect-ratio: 1456 / 819;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .hero-image {
@@ -1654,9 +1687,12 @@ footer {
   }
 
   .hero-fade {
+    position: absolute;
+    z-index: 1;
     inset: 0 0 auto;
     width: 100%;
     height: auto;
+    display: block;
     aspect-ratio: 1456 / 819;
     background: linear-gradient(
       to bottom,
@@ -1881,8 +1917,14 @@ footer {
   }
 
   .process-return {
-    margin-left: 0;
-    align-items: flex-start;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 16px;
+    align-items: center;
+  }
+
+  .process-return-mark {
+    width: 46px;
+    font-size: 27px;
   }
 
   .feedback-phone {
